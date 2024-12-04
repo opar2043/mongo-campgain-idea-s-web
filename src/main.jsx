@@ -15,11 +15,15 @@ import Mycampgain from './Components/Pages/Mycampgain.jsx';
 import Donation from './Components/Pages/Donation.jsx';
 import Login from './Components/Provider/Login.jsx';
 import Register from './Components/Provider/Register.jsx';
+import AddCampgain from './Components/Pages/AddCampgain.jsx';
+import Error from './Components/Pages/Error.jsx';
+import PrivateRoute from './Components/Provider/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children:[
       {
          path: '/',
@@ -27,11 +31,20 @@ const router = createBrowserRouter([
       },
       {
          path: '/allcampgain',
-         element: <Allcampgain></Allcampgain>
+         element: <Allcampgain></Allcampgain>,
+         loader: ()=>fetch('data.json')
+      },
+      {
+         path: '/addcampgain',
+         element: <PrivateRoute>
+            <AddCampgain></AddCampgain>
+         </PrivateRoute>
       },
       {
          path: '/mycampgain',
-         element: <Mycampgain></Mycampgain>
+         element: <PrivateRoute>
+            <Mycampgain></Mycampgain>
+         </PrivateRoute>
       },
       {
          path: '/donation',

@@ -1,12 +1,13 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom"
 import { AuthContex } from "./AuthProvider";
 
 const Login = () => {
 
-  const {  userLogin , handleGoogleLogin } = useContext(AuthContex)
+  const {  userLogin , handleGoogleLogin ,user,setUser} = useContext(AuthContex)
     // console.log(user , 'user from Login');
+    const [err,setErr] = useState(null)
 
     function handleLogin(e){
         e.preventDefault();
@@ -17,11 +18,13 @@ const Login = () => {
        userLogin(email,pass)
       .then((userCredential) => {
         const user = userCredential.user;
+        setUser(user)
         console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+        setErr(errorMessage)
       });
 
       e.target.reset()
@@ -86,13 +89,14 @@ const Login = () => {
           
         </div>
         <div>
-        {/* {
-          err && <p className="text-center text-red-600 text-sm font-bold"></p>
-        }
-
         {
+          err && <p className="text-center text-red-600 text-sm font-bold">{err}</p>
+        }
+        
+
+        {/* {
           msg && <p className="text-center text-green-600 text-sm font-bold"></p>
-        } */}
+        }  */}
       </div>
         <p className="text-center text-sm">Do not Have an Account? <span className="text-red-600 text-lg font-bold"><NavLink to={'/register'} >Register</NavLink></span></p>
       </form>

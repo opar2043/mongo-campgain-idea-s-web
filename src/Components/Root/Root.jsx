@@ -5,7 +5,7 @@ import Footer from "./Footer"
 
 const Root = () => {
   return (
-    <div>
+    <div className="w-full">
         <Header></Header>
         <Outlet></Outlet>
         <Footer></Footer>

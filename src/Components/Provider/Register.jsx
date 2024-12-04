@@ -5,9 +5,10 @@ import { AuthContex } from "./AuthProvider";
 
 const Register = () => {
 
-  const {registerUser,handleGoogleLogin} = useContext(AuthContex)
+  const {registerUser,handleGoogleLogin,user,setUser,updateUserData} = useContext(AuthContex)
     const navigate = useNavigate();
     const [state,setState] = useState(false)
+    const [err,setErr] = useState(null)
 
     function handleBtn() {
       setState(!state);
@@ -30,10 +31,19 @@ const Register = () => {
         registerUser(email,pass)
         .then((userData) => {
            const user = userData.user;
+           setUser(user);
+           navigate('/');
+           updateUserData({
+            displayName:name,
+            photoURL:img
+           })
+           .then(() => navigate('/'))
+           .catch(err=> console.log(err.code))
            console.log(user);
         })
         .catch((error) => {
          console.log(error.message);
+         setErr(error.message)
         });
 
         e.target.reset()
@@ -86,7 +96,7 @@ const Register = () => {
         <button className="btn btn-outline" onClick={()=>handleGoogleLogin()}>LogIn With Google</button>
       </div>
       <div>
-        <p className="text-center text-red-600 text-sm font-bold">err</p>
+        <p className="text-center text-red-600 text-sm font-bold">{err}</p>
       </div>
       <p className="text-center text-sm">Al Ready Have an Account? <span className="text-green-600 text-lg font-bold"><NavLink to={'/login'} >Login</NavLink></span></p>
     </form>

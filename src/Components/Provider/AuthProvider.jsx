@@ -1,12 +1,13 @@
-import  { createContext, useState } from 'react'
+import  { createContext, useEffect, useState } from 'react'
 import { auth } from '../Firebase/Firebase.config';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 
 export const AuthContex = createContext();
 const AuthProvider = ({children}) => {
 
-  const [loading,setLoading] = useState(true)
+  const [loading,setLoading] = useState(true);
+  const [user,setUser] = useState(null)
 
 
 //  register ==========================
@@ -30,10 +31,42 @@ const AuthProvider = ({children}) => {
     return signInWithPopup( auth,googleProvider)
   }
 
+  // signout =======================
+
+  function handleSignOut(){
+    setLoading(true)
+    return signOut(auth)
+  }
+
+  // observer ===================
+
+  useEffect(()=>{
+   const unsubscribe = onAuthStateChanged(auth,currentUser =>{
+             setUser(currentUser,'current user');
+             console.log(currentUser,'current user');
+             setLoading(false)
+    })
+    return ()=> unsubscribe()
+  })
+
+
+  // update user ================
+
+  function updateUserData(updateData){
+      return updateProfile(auth.currentUser, updateData)
+  }
+
+
+
+
   const obj = {
        registerUser,
        userLogin,
-       handleGoogleLogin
+       handleGoogleLogin,
+       handleSignOut,
+       user,
+       setUser,
+       updateUserData
   }
 
 

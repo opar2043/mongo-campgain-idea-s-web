@@ -1,0 +1,103 @@
+[
+    {
+      "deadline": "2024-12-24",
+      "description": "heyy",
+      "emailinfo": "rezone@gmail.com",
+      "image": "https://i.ibb.co/6Fxmckp/clothes2.jpg",
+      "minDonation": "500",
+      "title": "food",
+      "type": "creative-ideas",
+      "username": "opar"
+    },
+    {
+      "deadline": "2024-12-31",
+      "description": "Helping hands",
+      "emailinfo": "helper123@gmail.com",
+      "image": "https://i.ibb.co/ZYW3VTp/brown-brim.png",
+      "minDonation": "1000",
+      "title": "Winter Shelter",
+      "type": "personal-issue",
+      "username": "alina"
+    },
+    {
+      "deadline": "2025-01-15",
+      "description": "Startup Fundraiser",
+      "emailinfo": "startupkick@gmail.com",
+      "image": "https://i.ibb.co/rKBDvJX/palm-tree.png",
+      "minDonation": "5000",
+      "title": "Innovative Tech",
+      "type": "startup",
+      "username": "jackson"
+    },
+    {
+      "deadline": "2024-12-20",
+      "description": "Feeding the Needy",
+      "emailinfo": "needyfeed@gmail.com",
+      "image": "https://i.ibb.co/QdJwgmp/brown-cowboy.png",
+      "minDonation": "700",
+      "title": "Food for All",
+      "type": "creative-ideas",
+      "username": "lilly"
+    },
+    {
+      "deadline": "2025-02-10",
+      "description": "Raising awareness about art",
+      "emailinfo": "artcreator@gmail.com",
+      "image": "https://i.ibb.co/mh3VM1f/polka-dot.png",
+      "minDonation": "2000",
+      "title": "Artistry Showcase",
+      "type": "business",
+      "username": "martha"
+    },
+    {
+      "deadline": "2025-01-01",
+      "description": "Let's build a green world",
+      "emailinfo": "greenearth@gmail.com",
+      "image": "https://i.ibb.co/VpW4x5t/green-beanie.png",
+      "minDonation": "1500",
+      "title": "Eco-Friendly Campaign",
+      "type": "creative-ideas",
+      "username": "enviro"
+    },
+    {
+      "deadline": "2024-12-18",
+      "description": "Helping families in need",
+      "emailinfo": "familyhelp@gmail.com",
+      "image": "https://i.ibb.co/YTjW3vF/jean-jacket.png",
+      "minDonation": "300",
+      "title": "Family Support Drive",
+      "type": "personal-issue",
+      "username": "johnny"
+    },
+    {
+      "deadline": "2025-01-25",
+      "description": "Helping entrepreneurs thrive",
+      "emailinfo": "busboost@gmail.com",
+      "image": "https://i.ibb.co/55z32tw/long-sleeve.png",
+      "minDonation": "4000",
+      "title": "Business Booster",
+      "type": "startup",
+      "username": "stark"
+    },
+    {
+      "deadline": "2024-12-29",
+      "description": "Winter clothes for kids",
+      "emailinfo": "kidswarm@gmail.com",
+      "image": "https://i.ibb.co/xJS0T3Y/camo-vest.png",
+      "minDonation": "600",
+      "title": "Warm Winter Campaign",
+      "type": "personal-issue",
+      "username": "emily"
+    },
+    {
+      "deadline": "2025-02-05",
+      "description": "Encouraging young talent",
+      "emailinfo": "talentshow@gmail.com",
+      "image": "https://i.ibb.co/M6hHc3F/sun-glasses.png",
+      "minDonation": "3500",
+      "title": "Creative Minds",
+      "type": "creative-ideas",
+      "username": "owen"
+    }
+  ]
+  
