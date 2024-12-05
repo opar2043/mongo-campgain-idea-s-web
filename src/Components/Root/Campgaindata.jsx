@@ -1,6 +1,53 @@
+import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { Link, NavLink } from "react-router-dom"
+import { RiDeleteBin5Fill } from "react-icons/ri";
+import { BiDetail } from "react-icons/bi";
 
-const Campgaindata = ({singleData}) => {
-    const {deadline,description,emailinfo,image,minDonation,title,username,type} = singleData;
+const Campgaindata = ({singleData,setData}) => {
+    const {deadline,description,emailinfo,image,minDonation,title,username,type,_id} = singleData;
+
+    // function handleDetails(id){
+    //        console.log(id);
+    // }
+    function handleDelete(id){
+           console.log(id);
+           Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+            
+
+              fetch(`http://localhost:5000/campgain/${id}`,{
+                method: 'DELETE',
+              })
+              .then(res=>res.json())
+              .then(data =>{
+                 if(data.deletedCount > 0){
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                  })
+                  // const remainData = data.filter(d => d._id !==id)
+                  // setData(remainData)
+                  setData(prevData => prevData.filter(d => d._id !== id));
+                 }
+              })
+            }
+          });
+    }
+    // function handleUpdate(id){
+    //        console.log(id);
+    // }
+
+   
   return (
     <div>
         <div className="card card-compact bg-base-100  shadow-xl">
@@ -14,8 +61,14 @@ const Campgaindata = ({singleData}) => {
     <p className="font-semibold "><span className="text-sm font-bold">Title: </span>{title}</p>
     <p className="font-semibold "><span className="text-sm font-bold">Email: </span>{emailinfo}</p>
     <p className="font-semibold "><span className="text-sm font-bold">Donate: </span>{minDonation}$</p>
-    <div className="card-actions ">
-      <button className="btn btn-outline w-full">Show Details</button>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+       <NavLink to={`/allcampgain/${_id}`}>
+       <button className="btn btn-outline w-full" onClick={()=>handleDetails(_id)}> <BiDetail /> Details </button>
+       </NavLink>
+       {/* <Link to={`/update/${_id}`}>
+       <button className="btn btn-outline w-full">update</button>
+       </Link> */}
+      <button className="btn btn-outline w-full" onClick={()=>handleDelete(_id)}><RiDeleteBin5Fill></RiDeleteBin5Fill> Delete</button>
     </div>
   </div>
 </div>

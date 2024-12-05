@@ -1,30 +1,47 @@
 
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { AuthContex } from "./AuthProvider";
+import Swal from "sweetalert2";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 
-  const {  userLogin , handleGoogleLogin ,user,setUser} = useContext(AuthContex)
-    // console.log(user , 'user from Login');
-    const [err,setErr] = useState(null)
+  const {  userLogin , handleGoogleLogin ,setUser} = useContext(AuthContex)
+   
+    const [err,setErr] = useState(null);
+    const [state,setState] = useState(true)
+    const navigate = useNavigate()
 
     function handleLogin(e){
         e.preventDefault();
         const email = e.target.email.value;
         const pass = e.target.pass.value;
 
-        console.log(email,pass);
+        // console.log(email,pass);
        userLogin(email,pass)
       .then((userCredential) => {
         const user = userCredential.user;
-        setUser(user)
-        console.log(user);
+        setUser(user);
+
+        Swal.fire({
+          title: "Logged In Succesfully!",
+          icon: "success"
+        });
+
+        navigate('/');
+        // console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
-        setErr(errorMessage)
+       
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Wrong Password",
+          
+        });
       });
 
       e.target.reset()
@@ -34,10 +51,26 @@ const Login = () => {
     handleGoogleLogin()
     .then((result) => {
       console.log('User signed in:', result.user);
+      setUser(result.user);
+      Swal.fire({
+        title: "Succesfully logged in with Google",
+        icon: "success"
+      });
     })
     .catch((error) => {
       console.error('Error during Google Sign-In:', error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Somwthing Happen Wrong!",
+        
+      });
     })
+  }
+
+  function handleToggle(){
+    setState(!state)
   }
 
   // forget pass
@@ -64,21 +97,15 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email"  name="email" placeholder="email" className="input input-bordered" required />
+          <input type="email"  name="email" placeholder="email" className="input input-bordered"  />
         </div>
         <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
-            {/* <span><a onClick={handleBtn} type="button" className="absolute top-14 right-4">{state? <FaEyeSlash></FaEyeSlash> :<FaEye></FaEye>}</a></span> */}
-            {/* <button
-      onClick={handleBtn} // Toggle password visibility
-      type="button"       // Prevent default submit behavior
-      className="absolute top-14 right-4"
-    >
-      {state ? <FaEyeSlash /> : <FaEye />}
-    </button> */}
+            <span><a onClick={handleToggle} type="button" className="absolute top-14 right-4">{state? <FaEyeSlash></FaEyeSlash> :<FaEye></FaEye>}</a></span>
+        
           </label>
-          <input type='text' name="pass" placeholder="password" className="input input-bordered" required />
+          <input type={state ? 'text' : 'password'} name="pass" placeholder="password" className="input input-bordered"  />
           <label className="label" onClick={''}>
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>

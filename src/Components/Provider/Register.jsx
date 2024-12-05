@@ -2,10 +2,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContex } from "./AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
 
-  const {registerUser,handleGoogleLogin,user,setUser,updateUserData} = useContext(AuthContex)
+  const {registerUser,handleGoogleLogin,setUser,updateUserData} = useContext(AuthContex)
     const navigate = useNavigate();
     const [state,setState] = useState(false)
     const [err,setErr] = useState(null)
@@ -22,6 +23,15 @@ const Register = () => {
         const pass = e.target.pass.value;
         const img = e.target.img.value;
 
+        const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        if (!regex.test(pass)) {
+            setErr("Password must be an UpperCase , LowerCase and 6 character");
+            return
+        } 
+
+        setErr('')
+
         const userObj = {
           email,name,pass,img
         }
@@ -33,6 +43,11 @@ const Register = () => {
            const user = userData.user;
            setUser(user);
            navigate('/');
+           Swal.fire({
+            title: "You Registerd Succesfully!",
+            text: "You clicked the button!",
+            icon: "success"
+          });
            updateUserData({
             displayName:name,
             photoURL:img

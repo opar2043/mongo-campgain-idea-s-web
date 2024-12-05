@@ -18,6 +18,8 @@ import Register from './Components/Provider/Register.jsx';
 import AddCampgain from './Components/Pages/AddCampgain.jsx';
 import Error from './Components/Pages/Error.jsx';
 import PrivateRoute from './Components/Provider/PrivateRoute.jsx';
+import Details from './Components/Pages/Details.jsx';
+import Update from './Components/Pages/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
       {
          path: '/allcampgain',
          element: <Allcampgain></Allcampgain>,
-         loader: ()=>fetch('data.json')
+         loader: ()=>fetch('http://localhost:5000/campgain')
       },
       {
          path: '/addcampgain',
@@ -41,10 +43,25 @@ const router = createBrowserRouter([
          </PrivateRoute>
       },
       {
+         path: '/update/:upid',
+         element:<PrivateRoute>
+            <Update></Update>
+         </PrivateRoute>,
+         loader:({params})=>fetch(`http://localhost:5000/campgain`)
+      },
+      
+      {
          path: '/mycampgain',
          element: <PrivateRoute>
             <Mycampgain></Mycampgain>
          </PrivateRoute>
+      },
+      {
+         path: '/allcampgain/:id',
+         element: <PrivateRoute>
+            <Details></Details>,
+         </PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/campgain`)
       },
       {
          path: '/donation',

@@ -5,9 +5,11 @@ import Footer from "./Footer"
 
 const Root = () => {
   return (
-    <div className="w-full">
+    <div>
         <Header></Header>
+        <div  className="w-11/12 mx-auto">
         <Outlet></Outlet>
+        </div>
         <Footer></Footer>
     </div>
   )

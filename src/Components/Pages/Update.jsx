@@ -1,68 +1,76 @@
-import { useContext } from "react";
+import { useEffect } from "react";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContex } from "../Provider/AuthProvider";
-
-const AddCampaign = () => {
-
-  const {user} = useContext(AuthContex);
-
-  console.log(user);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const image = e.target.image.value;
-    const title = e.target.title.value;
-    const type = e.target.type.value;
-    const description = e.target.description.value;
-    const minDonation=e.target.minDonation.value;
-    const deadline=e.target.deadline.value;
-    const emailinfo = e.target.emailinfo.value;
-    const username=e.target.username.value;
 
 
-    const userData = {
-        username,
-        emailinfo,
-        title,
-        image,
-        type,
-        description,
-        minDonation,
-        deadline
-    }
+const Update = () => {
 
-    fetch('http://localhost:5000/campgain',{
-      method: "POST",
-      headers:{
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(userData)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log('data added');
-      if(data.insertedId){
-        Swal.fire({
-            title: 'success!',
-            text: 'Added Your Data',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-          })
+    const navigate = useNavigate()
+   const {upid} = useParams();
+   const userData = useLoaderData();
+   const newData = userData?.find((user) => user._id === upid) || [];
+
+//    console.log(newData,'newuser');
+//    console.log(newData.title);
+ 
+
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        const image = e.target.image.value;
+        const title = e.target.title.value;
+        const type = e.target.type.value;
+        const description = e.target.description.value;
+        const minDonation=e.target.minDonation.value;
+        const deadline=e.target.deadline.value;
+        const emailinfo = e.target.emailinfo.value;
+        const username=e.target.username.value;
+    
+    
+        const userData = {
+            username,
+            emailinfo,
+            title,
+            image,
+            type,
+            description,
+            minDonation,
+            deadline
         }
-    })
+    
+        fetch(`http://localhost:5000/campgain/${upid}`,{
+          method: "PATCH",
+          headers:{
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log('data added',data);
+          if(data.modifiedCount){
+            Swal.fire({
+                title: 'success!',
+                text: 'Updated',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+              navigate('/allcampgain')
+            }
+        })
+    
+        console.log(userData);
+      };
 
-    console.log(userData);
-  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center p-8 my-6">
+    <div className="min-h-screen bg-gradient-to-br from-red-100 to-indigo-200 flex items-center justify-center p-8 my-6">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Add New Campaign
+          Update Your Campgain
         </h2>
         <hr />
-        <form className="space-y-2 text-left mt-8" onSubmit={handleSubmit}>
-          {/* Image/Thumbnail */}
+        <form className="space-y-2 text-left mt-8" onSubmit={handleUpdate}>
+           Image/Thumbnail
           <div>
             <label
               htmlFor="image"
@@ -74,7 +82,7 @@ const AddCampaign = () => {
               type="url"
               id="image"
               name="image"
-             
+              defaultValue={newData.image}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter image URL"
               required
@@ -93,7 +101,7 @@ const AddCampaign = () => {
               type="text"
               id="title"
               name="title"
-              
+              defaultValue={newData.title}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter campaign title"
               required
@@ -111,7 +119,7 @@ const AddCampaign = () => {
             <select
               id="type"
               name="type"
-             
+              defaultValue={newData.type}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
             >
@@ -139,7 +147,7 @@ const AddCampaign = () => {
             <textarea
               id="description"
               name="description"
-            
+              defaultValue={newData.description}
               rows="4"
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter campaign description"
@@ -159,7 +167,7 @@ const AddCampaign = () => {
               type="number"
               id="minDonation"
               name="minDonation"
-             
+              defaultValue={newData.minDonation}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter minimum amount"
               required
@@ -178,7 +186,7 @@ const AddCampaign = () => {
               type="date"
               id="deadline"
               name="deadline"
-             
+              defaultValue={newData.deadline}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
             />
@@ -196,9 +204,9 @@ const AddCampaign = () => {
               type="email"
               id="email"
               name="emailinfo"
-              value={user.email}
               
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 "
+              defaultValue={newData.email}
+              className="mt-1 cursor-not-allowed block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 "
               
             />
           </div>
@@ -215,8 +223,8 @@ const AddCampaign = () => {
               type="text"
               id="username"
               name="username"
-              value={user.displayName}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 "
+              defaultValue={newData.displayName}
+              className="mt-1 cursor-not-allowed block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 "
               
             />
           </div>
@@ -225,15 +233,18 @@ const AddCampaign = () => {
           <div>
             <button
               type="submit"
-              className="w-full py-3 bg-indigo-500 text-white rounded-md shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-full py-3 bg-orange-500 text-white rounded-md shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Add Campaign Data
             </button>
           </div>
         </form>
-      </div>
+      </div> 
     </div>
-  );
-};
+    // <div>
+    //    <h1>update details</h1>
+    // </div>
+  )
+}
 
-export default AddCampaign;
+export default Update

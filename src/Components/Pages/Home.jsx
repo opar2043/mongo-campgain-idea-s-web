@@ -6,7 +6,7 @@ import Contuct from './Contuct'
 import WorkUs from './WorkUs'
 const Home = () => {
   return (
-        <div className='mt-6'>
+        <div className='my-6'>
           <div className="carousel w-full  ">
             {/* image 01==================== */}
   <div id="item1" className="carousel-item w-full">
@@ -17,10 +17,9 @@ const Home = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Start A Food Court?</h1>
       <p className="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+        Make a food court busniess by collaborationg us! Surely you will get a better guidline than any other platfrom!
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
   </div>
 </div>
@@ -36,10 +35,9 @@ const Home = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Lets Make A Home Made Restaurent....</h1>
       <p className="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+        a Home made food buisness is a good idea for make self development! You will  get a good oppotunity to show your hidden talent . its a good startup too!
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
   </div>
 </div>
@@ -54,10 +52,9 @@ const Home = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Wanna Start A sports Shop?</h1>
       <p className="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+        sports is a very popular and demandable goods in yopung generation. so Why not start a busniess?
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
   </div>
 </div>
@@ -71,10 +68,9 @@ const Home = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Build Your Knowladge by AI..</h1>
       <p className="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+        In digital world AI (Artificial Intilegency) is a good and very strong platfrom to show and make the betterment to grow a socity. lets serve the socity! 
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
   </div>
 </div>

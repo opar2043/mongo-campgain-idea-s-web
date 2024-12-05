@@ -1,5 +1,6 @@
 [
-    {
+  {
+      "_id": 1,
       "deadline": "2024-12-24",
       "description": "heyy",
       "emailinfo": "rezone@gmail.com",
@@ -8,8 +9,9 @@
       "title": "food",
       "type": "creative-ideas",
       "username": "opar"
-    },
-    {
+  },
+  {
+      "_id": 2,
       "deadline": "2024-12-31",
       "description": "Helping hands",
       "emailinfo": "helper123@gmail.com",
@@ -18,8 +20,9 @@
       "title": "Winter Shelter",
       "type": "personal-issue",
       "username": "alina"
-    },
-    {
+  },
+  {
+      "_id": 3,
       "deadline": "2025-01-15",
       "description": "Startup Fundraiser",
       "emailinfo": "startupkick@gmail.com",
@@ -28,8 +31,9 @@
       "title": "Innovative Tech",
       "type": "startup",
       "username": "jackson"
-    },
-    {
+  },
+  {
+      "_id": 4,
       "deadline": "2024-12-20",
       "description": "Feeding the Needy",
       "emailinfo": "needyfeed@gmail.com",
@@ -38,8 +42,9 @@
       "title": "Food for All",
       "type": "creative-ideas",
       "username": "lilly"
-    },
-    {
+  },
+  {
+      "_id": 5,
       "deadline": "2025-02-10",
       "description": "Raising awareness about art",
       "emailinfo": "artcreator@gmail.com",
@@ -48,8 +53,9 @@
       "title": "Artistry Showcase",
       "type": "business",
       "username": "martha"
-    },
-    {
+  },
+  {
+      "_id": 6,
       "deadline": "2025-01-01",
       "description": "Let's build a green world",
       "emailinfo": "greenearth@gmail.com",
@@ -58,8 +64,9 @@
       "title": "Eco-Friendly Campaign",
       "type": "creative-ideas",
       "username": "enviro"
-    },
-    {
+  },
+  {
+      "_id": 7,
       "deadline": "2024-12-18",
       "description": "Helping families in need",
       "emailinfo": "familyhelp@gmail.com",
@@ -68,8 +75,9 @@
       "title": "Family Support Drive",
       "type": "personal-issue",
       "username": "johnny"
-    },
-    {
+  },
+  {
+      "_id": 8,
       "deadline": "2025-01-25",
       "description": "Helping entrepreneurs thrive",
       "emailinfo": "busboost@gmail.com",
@@ -78,8 +86,9 @@
       "title": "Business Booster",
       "type": "startup",
       "username": "stark"
-    },
-    {
+  },
+  {
+      "_id": 9,
       "deadline": "2024-12-29",
       "description": "Winter clothes for kids",
       "emailinfo": "kidswarm@gmail.com",
@@ -88,8 +97,9 @@
       "title": "Warm Winter Campaign",
       "type": "personal-issue",
       "username": "emily"
-    },
-    {
+  },
+  {
+      "_id": 10,
       "deadline": "2025-02-05",
       "description": "Encouraging young talent",
       "emailinfo": "talentshow@gmail.com",
@@ -98,6 +108,5 @@
       "title": "Creative Minds",
       "type": "creative-ideas",
       "username": "owen"
-    }
-  ]
-  
+  }
+]

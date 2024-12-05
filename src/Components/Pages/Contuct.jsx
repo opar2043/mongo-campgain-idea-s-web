@@ -2,7 +2,7 @@
 
 const Contuct = () => {
     return (
-      <div className="bg-gray-100 py-12 px-6">
+      <div className="bg-gray-100 py-12 my-6 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-blue-600 mb-8">Sharing Your Ideas to the World...</h2>
           <div className="grid md:grid-cols-2 gap-8">

@@ -35,9 +35,12 @@ const Header = () => {
     </>
   return (
   
-  <div className="navbar bg-orange-600 md:w-full text-white -mt-8">
-  <div className="navbar-start">
-    <div className="dropdown">
+  <div className="navbar bg-orange-600  text-white px-12">
+    
+  <div className="navbar-start w-full">
+    <div className="dropdown">  
+
+    
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,14 +57,14 @@ const Header = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu gap-2 menu-sm dropdown-content bg-slate-200 text-black rounded-box  mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost font-bold text-xl">Crowdcube</a>
+    <a className="btn btn-ghost font-extrabold text-xl">Crowdcube</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal  px-1 gap-2">
+    <ul className="menu menu-horizontal md:-ml-48 px-1 gap-2">
       {links}
     </ul>
   </div>  
@@ -85,7 +88,10 @@ const Header = () => {
         </div>
   </div>
 </div>
+
 </div>
+
+
    
   )
 }
