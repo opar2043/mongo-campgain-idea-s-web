@@ -2,7 +2,7 @@ import React from 'react';
 
 const WorkUs = () => {
   return (
-    <div className="bg-blue-100 py-12 px-6 my-8">
+    <div className="bg-blue-100 py-12 px-6 my-8 rounded-md">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-blue-600 mb-8">How We Work?</h2>
         <p className="text-lg text-gray-700 mb-10">

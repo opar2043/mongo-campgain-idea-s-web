@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { AuthContex } from '../Provider/AuthProvider'
+import { Tooltip as ReactTooltip, Tooltip } from 'react-tooltip'
 
 const Header = () => {
 
@@ -30,15 +31,15 @@ const Header = () => {
        {
         user && <li><NavLink to={'/alluser'}>Users</NavLink></li>
        }
-       {
-        user ? <li><button onClick={logOut}><NavLink to={'/'}>Logout</NavLink></button></li> : <li><NavLink to={'/login'}>Login</NavLink></li>
-       }
-       {/* <li><NavLink to={'/register'}>Register</NavLink></li> */}
+        {
+        user  ? '' : <li><NavLink to={'/login'}>Login</NavLink></li>
+       } 
+       {/* <li><NavLink to={'/login'}>Login</NavLink></li> */}
       
     </>
   return (
   
-  <div className="navbar bg-orange-600  text-white px-12">
+  <div className="navbar  bg-gradient-to-r from-cyan-500 to-blue-500 absolute sticky top-0 z-10 text-white px-12">
     
   <div className="navbar-start w-full">
     <div className="dropdown">  
@@ -60,7 +61,7 @@ const Header = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
+        className="menu text-black menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
         {links}
       </ul>
     </div>
@@ -71,18 +72,30 @@ const Header = () => {
       {links}
     </ul>
   </div>  
-  <div className="navbar-end ">
-  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+  <div className="navbar-end gap-2">
+  {
+      user &&  <button className='py-2 px-3 rounded-md bg-yellow-500 text-black text-xs font-semibold' onClick={logOut}><NavLink to={'/'} >Logout</NavLink></button>
+    }
+  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar ">
+ 
   <div className="w-10 rounded-full">
+
+    
             {
               user ? <div>
-                  <img
-            alt="Tailwind CSS Navbar component"
-            src={user?.photoURL}  />
-               <p className="text-xs absolute left-0 -bottom-6 bg-white text-black px-2 py-1 rounded shadow-lg hidden group-hover:flex">
-        {user?.displayName}
-      </p>
-              </div> :  <img
+              {/* Use data-tooltip-id to reference the Tooltip */}
+              <img
+                alt="User Avatar"
+                src={user?.photoURL}
+                data-tooltip-id="user-tooltip"
+              />
+                
+
+              {/* Tooltip definition */}
+              <ReactTooltip id="user-tooltip" place="bottom" effect="solid">
+                {user?.displayName || "User"}
+              </ReactTooltip>
+            </div> :  <img
       alt="Default Profile"
       src="https://i.ibb.co.com/6Fxmckp/clothes2.jpg"
       className="rounded-full"

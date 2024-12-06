@@ -7,9 +7,7 @@ import { BiDetail } from "react-icons/bi";
 const Campgaindata = ({singleData,setData}) => {
     const {deadline,description,emailinfo,image,minDonation,title,username,type,_id} = singleData;
 
-    // function handleDetails(id){
-    //        console.log(id);
-    // }
+    
     function handleDelete(id){
            console.log(id);
            Swal.fire({
@@ -35,8 +33,7 @@ const Campgaindata = ({singleData,setData}) => {
                     text: "Your file has been deleted.",
                     icon: "success"
                   })
-                  // const remainData = data.filter(d => d._id !==id)
-                  // setData(remainData)
+                 
                   setData(prevData => prevData.filter(d => d._id !== id));
                  }
               })
@@ -50,21 +47,6 @@ const Campgaindata = ({singleData,setData}) => {
    
   return (
     <div>
-{/* tablee================ */}
-
-
- 
-  
-
-
-
-
-
-
-
-
-
-
 
           <div className="card card-compact bg-base-100  shadow-xl">
   <figure>

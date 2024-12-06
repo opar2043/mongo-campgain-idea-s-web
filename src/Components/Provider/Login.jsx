@@ -52,6 +52,7 @@ const Login = () => {
     .then((result) => {
       console.log('User signed in:', result.user);
       setUser(result.user);
+      navigate('/')
       Swal.fire({
         title: "Succesfully logged in with Google",
         icon: "success"

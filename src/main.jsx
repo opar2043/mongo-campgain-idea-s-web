@@ -22,6 +22,7 @@ import Details from './Components/Pages/Details.jsx';
 import Update from './Components/Pages/Update.jsx';
 import User from './Components/Pages/User.jsx';
 import AllUser from './Components/Root/AllUser.jsx';
+import Mydonation from './Components/Pages/Mydonation.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,8 @@ const router = createBrowserRouter([
          path: '/mycampgain',
          element: <PrivateRoute>
             <Mycampgain></Mycampgain>
-         </PrivateRoute>
+         </PrivateRoute>,
+         loader:()=>fetch('http://localhost:5000/campgain')
       },
       {
          path: '/user',
@@ -78,7 +80,9 @@ const router = createBrowserRouter([
       },
       {
          path: '/donation',
-         element: <Donation></Donation>
+         element: <PrivateRoute>
+            <Mydonation></Mydonation>
+         </PrivateRoute>
       },
       {
          path: '/login',

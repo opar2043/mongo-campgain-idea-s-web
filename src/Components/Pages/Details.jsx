@@ -1,14 +1,19 @@
-import { useLoaderData, useParams } from "react-router-dom"
+import { Links, useLoaderData, useParams } from "react-router-dom"
 import { Link } from "react-router-dom";
 import { MdSystemUpdateAlt} from "react-icons/md";
 import { LiaDonateSolid } from "react-icons/lia";
+import { useContext } from "react";
+import { AuthContex } from "../Provider/AuthProvider";
 
 const Details = ({}) => {
     const {id} = useParams();
     const details = useLoaderData();
     const oneDetails = details?.find(user => user._id == id) || []
-    // console.log(oneDetails);
+    
     const {deadline,description,emailinfo,image,minDonation,title,username,type,_id} = oneDetails;
+
+   const {handleDonate,donate,setDonate} = useContext(AuthContex)
+    
 
   return (
     <div className="w-10/12 mx-auto my-10">
@@ -32,7 +37,10 @@ const Details = ({}) => {
       <Link to={`/update/${_id}`} className="w-full">
        <button className="btn btn-outline w-full"><MdSystemUpdateAlt></MdSystemUpdateAlt> Update Data</button>
        </Link>
-       <button className="btn btn-warning w-full"> <LiaDonateSolid></LiaDonateSolid> Donate</button>
+       <Link >
+       <button className="btn btn-warning w-full" onClick={()=>handleDonate(oneDetails)}> <LiaDonateSolid></LiaDonateSolid> Donate</button>
+       </Link>
+      
     </div>
   </div>
 </div>
@@ -42,3 +50,5 @@ const Details = ({}) => {
 }
 
 export default Details
+
+// to={'/donation'}

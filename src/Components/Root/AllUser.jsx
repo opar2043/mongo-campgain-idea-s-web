@@ -33,18 +33,22 @@ const AllUser = () => {
       
       {
         data.map((single,idx)=> 
-            <tr>
+ 
+<>
+<tr>
   <th>{idx +1}</th>
-        <td>{single.username}</td>
-        <td>{single?.emailinfo}</td>
-        <td>{single.type}</td>
-        <td>
-        <NavLink to={`/allcampgain/${single._id}`}>
-       <button className="btn btn-info w-full" > <BiDetail /> Details </button>
-       </NavLink> 
-            
-        </td>
-  </tr>
+<td>{single.username}</td>
+<td>{single?.emailinfo}</td>
+<td>{single.type}</td>
+<td>
+<NavLink to={`/allcampgain/${single._id}`}>
+<button className="btn btn-info w-full" > <BiDetail /> Details </button>
+</NavLink> 
+   
+</td>
+</tr>
+</>
+ 
         )
       }
    

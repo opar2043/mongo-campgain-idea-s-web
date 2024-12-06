@@ -50,7 +50,7 @@ const AddCampaign = () => {
           })
         }
     })
-
+     e.target.reset();
     console.log(userData);
   };
 

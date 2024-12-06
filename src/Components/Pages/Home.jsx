@@ -4,6 +4,8 @@ import bgns from '../../assets/busniess-food.webp'
 import aiii from '../../assets//ai.webp'
 import Contuct from './Contuct'
 import WorkUs from './WorkUs'
+import { Typewriter } from 'react-simple-typewriter'
+import { Fade ,Flip,JackInTheBox} from "react-awesome-reveal";
 const Home = () => {
   return (
         <div className='my-6'>
@@ -15,9 +17,26 @@ const Home = () => {
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Start A Food Court?</h1>
+    <Fade>
+    <h1 className="mb-5 text-5xl font-bold">Start A Food Court?</h1>
+
+</Fade>
       <p className="mb-5">
-        Make a food court busniess by collaborationg us! Surely you will get a better guidline than any other platfrom!
+
+      <span style={{ color: 'white', fontWeight: 'bold' }}>
+  Make a food <Typewriter
+    words={[
+      'court business by collaborating with us! Surely you will get a better guideline than any other platform!'
+    ]}
+    loop={5}
+    cursor
+    cursorStyle='_'
+    typeSpeed={50}
+    deleteSpeed={50}
+    delaySpeed={1000}
+  />
+</span>
+
       </p>
       {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
@@ -33,9 +52,27 @@ const Home = () => {
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Lets Make A Home Made Restaurent....</h1>
+     <JackInTheBox>
+     <h1 className="mb-5 text-5xl font-bold">Lets Make A Home Made Restaurent....</h1>
+
+     </JackInTheBox>
       <p className="mb-5">
-        a Home made food buisness is a good idea for make self development! You will  get a good oppotunity to show your hidden talent . its a good startup too!
+        a Home made 
+
+        <span style={{ color: 'white', fontWeight: 'bold' }}>
+  Make a food  <Typewriter
+    words={[
+      'food buisness is a good idea for make self development! You will  get a good oppotunity to show your hidden talent . its a good startup too!'
+    ]}
+    loop={5}
+    cursor
+    cursorStyle='_'
+    typeSpeed={50}
+    deleteSpeed={50}
+    delaySpeed={1000}
+  />
+</span>
+
       </p>
       {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
@@ -52,7 +89,22 @@ const Home = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Wanna Start A sports Shop?</h1>
       <p className="mb-5">
-        sports is a very popular and demandable goods in yopung generation. so Why not start a busniess?
+        sports is a 
+
+        <span style={{ color: 'white', fontWeight: 'bold' }}>
+  Make a food  <Typewriter
+    words={[
+      'very popular and demandable goods in yopung generation. so Why not start a busniess?'
+    ]}
+    loop={5}
+    cursor
+    cursorStyle='_'
+    typeSpeed={70}
+    deleteSpeed={50}
+    delaySpeed={1000}
+  />
+</span>
+
       </p>
       {/* <button className="btn btn-primary">Get Started</button> */}
     </div>
@@ -68,7 +120,24 @@ const Home = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Build Your Knowladge by AI..</h1>
       <p className="mb-5">
-        In digital world AI (Artificial Intilegency) is a good and very strong platfrom to show and make the betterment to grow a socity. lets serve the socity! 
+        In digital world  
+        <span style={{ color: 'white', fontWeight: 'bold' }}>
+  Make a food 
+  <Typewriter
+    words={[
+      'AI (Artificial Intilegency) is a good and very strong platfrom to show and make the betterment to grow a socity. lets serve the socity!'
+    ]}
+    loop={5}
+    cursor
+    cursorStyle='_'
+    typeSpeed={70}
+    deleteSpeed={50}
+    delaySpeed={1000}
+  />
+</span>
+
+        
+
       </p>
       {/* <button className="btn btn-primary">Get Started</button> */}
     </div>

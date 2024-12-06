@@ -1,11 +1,13 @@
 import  { createContext, useEffect, useState } from 'react'
 import { auth } from '../Firebase/Firebase.config';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
-import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile ,GoogleAuthProvider} from 'firebase/auth';
+import Swal from 'sweetalert2';
+
 
 export const AuthContex = createContext();
 const AuthProvider = ({children}) => {
 
+  const [donate,setDonate]= useState([])
   const [loading,setLoading] = useState(true);
   const [user,setUser] = useState(null)
 
@@ -38,28 +40,58 @@ const AuthProvider = ({children}) => {
     return signOut(auth)
   }
 
-  // observer ===================
-
-  useEffect(()=>{
-   const unsubscribe = onAuthStateChanged(auth,currentUser =>{
-    if(currentUser){
-      setUser(currentUser,'current user');
-      console.log(currentUser,'current user');
-    }        
-             setLoading(false)
-    })
-    return ()=> {
-      unsubscribe()
-    }
-  },[])
 
 
   // update user ================
 
   function updateUserData(updateData){
-      return updateProfile(auth.currentUser, updateData)
-  }
+    return updateProfile(auth.currentUser, updateData)
+}
 
+  
+
+  function handleDonate(donation){
+    // if(donation === donation){
+    
+    // }
+    const isExist = donate.find(p=>p._id == donation._id);
+    // console.log(isExist,'find');
+    if(isExist){
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Same Data cant Added",
+        
+      });
+    }else{
+      setDonate([...donate,donation])
+      Swal.fire({
+        title: "Good job!",
+        text: "Data Added Successfully!",
+        icon: "success"
+      });
+    }
+      
+   
+  }
+  //  console.log(donate);
+
+
+    // observer ===================
+
+    useEffect(()=>{
+      const unsubscribe = onAuthStateChanged(auth,currentUser =>{
+       if(currentUser){
+         setUser(currentUser,'current user');
+         setLoading(false)
+         console.log(currentUser,'current user');
+       }        
+       })
+       return ()=> {
+         unsubscribe()
+       }
+     },[auth])
+   
 
 
 
@@ -70,7 +102,10 @@ const AuthProvider = ({children}) => {
        handleSignOut,
        user,
        setUser,
-       updateUserData
+       updateUserData,
+       handleDonate,
+       donate,
+       setDonate
   }
 
 

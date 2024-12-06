@@ -1,16 +1,21 @@
 
+import { Fade ,Flip} from "react-awesome-reveal";
 
 const Contuct = () => {
     return (
-      <div className="bg-gray-100 py-12 my-6 px-6">
+      <div className="bg-gray-100 py-12 my-6 px-6 rounded-md">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-blue-600 mb-8">Sharing Your Ideas to the World...</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Share Ideas Section */}
+            <div>
+
+            <Flip>
+            
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h1 className="text-2xl font-semibold text-gray-800 mb-4">Let's Share Your Ideas!</h1>
               <p className="text-gray-600 mb-6">
-                Share your knowledge and serve both yourself and your country. Building a better future benefits not only you but also the nation as a whole.
+                Share your knowledge and serve both yourself and your country. Building a better future benefits not only you but also the nation as a whole.Thats Better For You Everuone.
               </p>
               <a
                 href="#"
@@ -19,8 +24,13 @@ const Contuct = () => {
                 Share Ideas
               </a>
             </div>
+            </Flip>
+            </div>
+
   
             {/* Collaborate Section */}
+            <div>
+            <Flip>
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h1 className="text-2xl font-semibold text-gray-800 mb-4">Collaborate With Us?</h1>
               <p className="text-gray-600 mb-6">
@@ -33,6 +43,9 @@ const Contuct = () => {
                 Collaborate
               </a>
             </div>
+            </Flip>
+            </div>
+
           </div>
         </div>
       </div>
