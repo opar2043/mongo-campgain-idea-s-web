@@ -50,7 +50,23 @@ const Campgaindata = ({singleData,setData}) => {
    
   return (
     <div>
-        <div className="card card-compact bg-base-100  shadow-xl">
+{/* tablee================ */}
+
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+          <div className="card card-compact bg-base-100  shadow-xl">
   <figure>
     <img
       src={image}
@@ -64,14 +80,14 @@ const Campgaindata = ({singleData,setData}) => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
        <NavLink to={`/allcampgain/${_id}`}>
        <button className="btn btn-outline w-full" onClick={()=>handleDetails(_id)}> <BiDetail /> Details </button>
-       </NavLink>
+       </NavLink> 
        {/* <Link to={`/update/${_id}`}>
        <button className="btn btn-outline w-full">update</button>
-       </Link> */}
+       </Link>  */}
       <button className="btn btn-outline w-full" onClick={()=>handleDelete(_id)}><RiDeleteBin5Fill></RiDeleteBin5Fill> Delete</button>
     </div>
   </div>
-</div>
+</div>  
     </div>
   )
 }

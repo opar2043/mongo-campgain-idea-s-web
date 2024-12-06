@@ -28,6 +28,9 @@ const Header = () => {
         user && <li><NavLink to={'/addcampgain'}>Add Campgain</NavLink></li>
        }
        {
+        user && <li><NavLink to={'/alluser'}>Users</NavLink></li>
+       }
+       {
         user ? <li><button onClick={logOut}><NavLink to={'/'}>Logout</NavLink></button></li> : <li><NavLink to={'/login'}>Login</NavLink></li>
        }
        {/* <li><NavLink to={'/register'}>Register</NavLink></li> */}

@@ -20,6 +20,8 @@ import Error from './Components/Pages/Error.jsx';
 import PrivateRoute from './Components/Provider/PrivateRoute.jsx';
 import Details from './Components/Pages/Details.jsx';
 import Update from './Components/Pages/Update.jsx';
+import User from './Components/Pages/User.jsx';
+import AllUser from './Components/Root/AllUser.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,11 @@ const router = createBrowserRouter([
       {
          path: '/allcampgain',
          element: <Allcampgain></Allcampgain>,
+         loader: ()=>fetch('http://localhost:5000/campgain')
+      },
+      {
+         path: '/alluser',
+         element: <AllUser></AllUser>,
          loader: ()=>fetch('http://localhost:5000/campgain')
       },
       {
@@ -54,6 +61,12 @@ const router = createBrowserRouter([
          path: '/mycampgain',
          element: <PrivateRoute>
             <Mycampgain></Mycampgain>
+         </PrivateRoute>
+      },
+      {
+         path: '/user',
+         element: <PrivateRoute>
+            <User></User>
          </PrivateRoute>
       },
       {
