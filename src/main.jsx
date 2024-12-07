@@ -23,6 +23,7 @@ import Update from './Components/Pages/Update.jsx';
 import User from './Components/Pages/User.jsx';
 import AllUser from './Components/Root/AllUser.jsx';
 import Mydonation from './Components/Pages/Mydonation.jsx';
+import Sixcamp from './Components/Root/Sixcamp.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,12 +38,17 @@ const router = createBrowserRouter([
       {
          path: '/allcampgain',
          element: <Allcampgain></Allcampgain>,
-         loader: ()=>fetch('http://localhost:5000/campgain')
+         loader: ()=>fetch('https://react-sports-server-site.vercel.app/campgain')
+      },
+      {
+         path: '/sixcamp',
+         element: <Sixcamp></Sixcamp>,
+         loader: ()=>fetch('https://react-sports-server-site.vercel.app/campgain')
       },
       {
          path: '/alluser',
          element: <AllUser></AllUser>,
-         loader: ()=>fetch('http://localhost:5000/campgain')
+         loader: ()=>fetch('https://react-sports-server-site.vercel.app/campgain')
       },
       {
          path: '/addcampgain',
@@ -55,7 +61,7 @@ const router = createBrowserRouter([
          element:<PrivateRoute>
             <Update></Update>
          </PrivateRoute>,
-         loader:({params})=>fetch(`http://localhost:5000/campgain`)
+         loader:({params})=>fetch(`https://react-sports-server-site.vercel.app/campgain`)
       },
       
       {
@@ -63,7 +69,7 @@ const router = createBrowserRouter([
          element: <PrivateRoute>
             <Mycampgain></Mycampgain>
          </PrivateRoute>,
-         loader:()=>fetch('http://localhost:5000/campgain')
+         loader:()=>fetch('https://react-sports-server-site.vercel.app/campgain')
       },
       {
          path: '/user',
@@ -76,7 +82,7 @@ const router = createBrowserRouter([
          element: <PrivateRoute>
             <Details></Details>,
          </PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/campgain`)
+          loader:({params})=>fetch(`https://react-sports-server-site.vercel.app/campgain`)
       },
       {
          path: '/donation',

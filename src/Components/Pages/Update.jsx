@@ -37,7 +37,7 @@ const Update = () => {
             deadline
         }
     
-        fetch(`http://localhost:5000/campgain/${upid}`,{
+        fetch(`https://react-sports-server-site.vercel.app/campgain/${upid}`,{
           method: "PATCH",
           headers:{
             'content-type': 'application/json'

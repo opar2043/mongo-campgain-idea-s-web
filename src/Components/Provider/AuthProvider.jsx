@@ -79,19 +79,31 @@ const AuthProvider = ({children}) => {
 
     // observer ===================
 
-    useEffect(()=>{
-      const unsubscribe = onAuthStateChanged(auth,currentUser =>{
-       if(currentUser){
-         setUser(currentUser,'current user');
-         setLoading(false)
-         console.log(currentUser,'current user');
-       }        
-       })
-       return ()=> {
-         unsubscribe()
-       }
-     },[auth])
+    // useEffect(()=>{
+    //   const unsubscribe = onAuthStateChanged(auth,currentUser =>{
+    //    if(currentUser){
+    //      setUser(currentUser,'current user');
+    //      console.log(currentUser,'current user');
+    //    setLoading(false)
+
+    //    }        
+    //    })
+    //    return ()=> {
+    //      unsubscribe()
+    //    }
+    //  },[auth])
    
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser); 
+        setLoading(false); 
+      });
+    
+      return () => {
+        unsubscribe();
+      };
+    }, []);
+    
 
 
 
@@ -105,7 +117,8 @@ const AuthProvider = ({children}) => {
        updateUserData,
        handleDonate,
        donate,
-       setDonate
+       setDonate,
+       loading
   }
 
 

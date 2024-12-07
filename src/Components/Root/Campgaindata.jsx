@@ -22,7 +22,7 @@ const Campgaindata = ({singleData,setData}) => {
             if (result.isConfirmed) {
             
 
-              fetch(`http://localhost:5000/campgain/${id}`,{
+              fetch(`https://react-sports-server-site.vercel.app/campgain/${id}`,{
                 method: 'DELETE',
               })
               .then(res=>res.json())
@@ -30,7 +30,7 @@ const Campgaindata = ({singleData,setData}) => {
                  if(data.deletedCount > 0){
                   Swal.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "Your Card has been deleted.",
                     icon: "success"
                   })
                  

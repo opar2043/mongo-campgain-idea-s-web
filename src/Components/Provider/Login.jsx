@@ -1,6 +1,6 @@
 
 import { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { AuthContex } from "./AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye } from "react-icons/fa";
@@ -8,7 +8,8 @@ import { FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 
-  const {  userLogin , handleGoogleLogin ,setUser} = useContext(AuthContex)
+  const {  userLogin , handleGoogleLogin ,setUser} = useContext(AuthContex);
+  const location =  useLocation()
    
     const [err,setErr] = useState(null);
     const [state,setState] = useState(true)
@@ -30,7 +31,7 @@ const Login = () => {
           icon: "success"
         });
 
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
         // console.log(user);
       })
       .catch((error) => {

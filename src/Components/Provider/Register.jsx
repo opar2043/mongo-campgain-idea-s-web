@@ -108,7 +108,7 @@ const Register = () => {
       </div>
       <div className="form-control mt-6">
         <button className="btn btn-accent mb-2" >Register Now</button>
-        <button className="btn btn-outline" onClick={()=>handleGoogleLogin()}>LogIn With Google</button>
+
       </div>
       <div>
         <p className="text-center text-red-600 text-sm font-bold">{err}</p>

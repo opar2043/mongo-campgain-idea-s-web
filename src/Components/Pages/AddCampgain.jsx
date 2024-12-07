@@ -31,7 +31,7 @@ const AddCampaign = () => {
         deadline
     }
 
-    fetch('http://localhost:5000/campgain',{
+    fetch('https://react-sports-server-site.vercel.app/campgain',{
       method: "POST",
       headers:{
         'content-type': 'application/json'

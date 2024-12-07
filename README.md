@@ -1,8 +1,14 @@
-# React + Vite
+# Crowd Cube
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this Web Application You Can Donate Money and Share ideas to The People Who is thinking to start a new Buisness and ideas.Its the Web Site For Creative People to share Their Brilliant Knowladge
 
-Currently, two official plugins are available:
+Here i used.....
+- React 
+- tailwind CSS
+- React Liabrary 
+- Firebase For Auth
+- MongoDb for data base
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+here is the live link -------
+-  https://verdant-torrone-e31ee7.netlify.app/

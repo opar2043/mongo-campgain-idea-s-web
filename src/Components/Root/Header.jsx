@@ -73,6 +73,10 @@ const Header = () => {
     </ul>
   </div>  
   <div className="navbar-end gap-2">
+  <input type="checkbox" value="synthwave" className="toggle theme-controller" id='switch'/>
+
+  {/* <input type="checkbox" id="switch" className="toggle theme-controller" /> */}
+
   {
       user &&  <button className='py-2 px-3 rounded-md bg-yellow-500 text-black text-xs font-semibold' onClick={logOut}><NavLink to={'/'} >Logout</NavLink></button>
     }
@@ -105,11 +109,18 @@ const Header = () => {
   </div>
 </div>
 
+{/* <script src='app.js'>
+
+    
+</script> */}
+
 </div>
 
 
    
   )
 }
+
+
 
 export default Header
