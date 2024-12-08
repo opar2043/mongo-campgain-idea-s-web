@@ -5,6 +5,8 @@ import { AuthContex } from "./AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { IoIosLogIn } from "react-icons/io";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
 
@@ -48,47 +50,40 @@ const Login = () => {
       e.target.reset()
   }
 
-  function googleLogin(){
-    handleGoogleLogin()
-    .then((result) => {
-      console.log('User signed in:', result.user);
-      setUser(result.user);
-      navigate('/')
-      Swal.fire({
-        title: "Succesfully logged in with Google",
-        icon: "success"
-      });
-    })
-    .catch((error) => {
-      console.error('Error during Google Sign-In:', error);
+  
+  
 
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Somwthing Happen Wrong!",
-        
+  function googleLogin() {
+    handleGoogleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log('User signed in:', user);
+        setUser(user);
+  
+        Swal.fire({
+          title: "Successfully logged in with Google!",
+          icon: "success",
+        });
+  
+        navigate('/'); // Navigate to the home page after Google login
+      })
+      .catch((error) => {
+        console.error('Error during Google Sign-In:', error);
+  
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong. Please try again later.",
+        });
       });
-    })
   }
+  
 
   function handleToggle(){
     setState(!state)
   }
 
-  // forget pass
-//   function handleForgetPassword() {
-      
-//       const email = emailRef.current.value;
 
-//       if(!emailRef){
-//         setErr('please provide email adress!')
-//       }else{
-//         sendPasswordResetEmail(auth,email)
-//         .then(()=>{
-//           alert('Reset Email sent!')
-//         })
-//       }
-// }
 
   return (
     <div className="card border bg-base-100 md:w-1/2 my-10 mx-auto shrink-0 shadow-2xl ">
@@ -113,8 +108,8 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-white bg-gradient-to-r from-cyan-500 to-blue-500 mb-2">Login</button>
-           <button className="btn btn-outline" onClick={googleLogin}>LogIn With Google</button>
+          <button className="btn text-white bg-gradient-to-r from-cyan-500 to-blue-500 mb-2"><IoIosLogIn></IoIosLogIn> Login</button>
+           <button className="btn btn-outline" onClick={googleLogin}><FaGoogle></FaGoogle> LogIn With Google</button>
           
         </div>
         <div>

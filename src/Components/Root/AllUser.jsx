@@ -20,6 +20,7 @@ const AllUser = () => {
     <thead className=''>
       <tr>
         <th>index</th>
+        <th>User</th>
         <th>Name</th>
         <th>Email</th>
         <th>Category</th>
@@ -37,12 +38,17 @@ const AllUser = () => {
 <>
 <tr>
   <th>{idx +1}</th>
+  <th> <img
+      alt="Default Profile"
+      src={single.image}
+      className="rounded-full w-8"
+    /></th>
 <td>{single.username}</td>
 <td>{single?.emailinfo}</td>
 <td>{single.type}</td>
 <td>
 <NavLink to={`/allcampgain/${single._id}`}>
-<button className="btn btn-info w-full" > <BiDetail /> Details </button>
+<button className="btn bg-gradient-to-r from-purple-500 to-pink-500 text-white w-full" > <BiDetail /> Details </button>
 </NavLink> 
    
 </td>

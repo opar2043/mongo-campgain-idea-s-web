@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContex } from "./AuthProvider";
 import Swal from "sweetalert2";
+import { IoIosCreate } from "react-icons/io";
 
 const Register = () => {
 
@@ -107,7 +108,8 @@ const Register = () => {
 </button>
       </div>
       <div className="form-control mt-6">
-        <button className="btn btn-accent mb-2" >Register Now</button>
+        <button className="btn btn-accent mb-2" ><IoIosCreate></IoIosCreate> Register Now</button>
+
 
       </div>
       <div>

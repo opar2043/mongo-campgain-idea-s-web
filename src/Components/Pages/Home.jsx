@@ -8,6 +8,7 @@ import { Typewriter } from 'react-simple-typewriter'
 import { Fade ,Flip,JackInTheBox} from "react-awesome-reveal";
 import Allcampgain from './Allcampgain'
 import Sixcamp from '../Root/Sixcamp'
+
 const Home = () => {
   return (
         <div className='my-6'>
@@ -155,7 +156,7 @@ const Home = () => {
 </div>
 
 <Contuct></Contuct>
-
+<Sixcamp></Sixcamp>
 <WorkUs></WorkUs>
         </div>
   )

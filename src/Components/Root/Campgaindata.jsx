@@ -69,7 +69,7 @@ const Campgaindata = ({singleData,setData}) => {
       <button className="btn btn-outline w-full" onClick={()=>handleDelete(_id)}><RiDeleteBin5Fill></RiDeleteBin5Fill> Delete</button>
     </div>
   </div>
-</div>  
+         </div>  
     </div>
   )
 }
